@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>compute gcd</title>
+</head>
+<body>
+    <input type="number" id="A"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="number" id="B"/>
+    <br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" id="chkgcd" value="Find GCD" onclick="return compute_gcd()" />
+    <script>
+
+        function compute_gcd()
+        {
+                var a = document.getElementById(A); //First number
+                var b = document.getElementById(B);  //Second number 
+                var gcd;
+                while (a!=b)
+                {
+                    if (a>b)
+                    {
+                        a = a -b;
+                    }
+                    else
+                    {
+                        b = b - a;
+                    }
+                }
+                gcd = a;
+                document.write("<br>"+"The GCD of "+a+" and "+b+" is "+gcd);
+        }
+    </script>
+</body>
+</html>

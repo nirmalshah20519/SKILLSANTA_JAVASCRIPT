@@ -1,0 +1,58 @@
+<input type="text" id="txtDate" onblur = "ValidateDOB()" />
+<span class="error" id="lblError"></span>
+<br />
+<br />
+<input type="button" id="btnValidate" value="Check For Eligibility" onclick="return ValidateDOB()" />
+ 
+ 
+
+<script type="text/javascript">
+    function ValidateDOB() 
+    {
+        var lblError = document.getElementById("lblError");
+ 
+        //Get the date from the TextBox.
+        var dateString = document.getElementById("txtDate").value;
+        var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+ 
+        //Check whether valid dd/MM/yyyy Date Format.
+        if (regex.test(dateString)) {
+            var parts = dateString.split("/");
+            var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+            var dtCurrent = new Date();
+            //lblError.innerHTML = "You are not eligible."
+            if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 14) 
+            {
+                alert("Sorry, you are not eligible !!")
+                return false;
+            }
+ 
+            if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 14) 
+            {
+ 
+                
+                if (dtCurrent.getMonth() < dtDOB.getMonth()) {
+                    return false;
+                }
+                if (dtCurrent.getMonth() == dtDOB.getMonth()) {
+                    
+                    if (dtCurrent.getDate() < dtDOB.getDate()) {
+                        return false;
+                    }
+                }
+            }
+            if (dtCurrent.getFullYear() - dtDOB.getFullYear() > 24) 
+            {
+                return false;
+            }
+            lblError.innerHTML = "";
+            alert("Congrats , you are eligible !!")
+            return true;
+        } 
+        else 
+        {
+            lblError.innerHTML = "Enter date in dd/MM/yyyy format ONLY."
+            return false;
+        }
+    }
+</script>
