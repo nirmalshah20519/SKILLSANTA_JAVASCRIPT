@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+var a= "Hello all welcome to Javascript";
+    function strcon(str)
+    {
+        
+
+        document.write("Before Change :-");
+        document.write("<br>");
+        document.write(str);
+        document.write("<br>");
+
+        document.write("After Change :-");
+        document.write("<br>");
+        for(i=0;i<a.length;i++)
+
+        {
+
+            if(str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90)
+
+        {
+
+            document.write(str.toLowerCase(i));
+
+        }
+
+        else
+
+            document.write(str.toUpperCase(i));
+
+        }
+
+    }
+    strcon(a);
+</script>   
+</body>
+</html>
