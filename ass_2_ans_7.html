@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove an item from Dropdown list</title>
+    <script>
+        function removecolor() {
+            var x = document.getElementById("colorSelect");
+            x.remove(x.selectedIndex);
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <select id="colorSelect">
+            <option>Web Devlopmetn</option>
+            <option>Python</option>
+            <option>Javascript</option>
+            <option>Political science</option>
+        </select>
+        <input type="button" onclick="removecolor()" value="Select and Remove">
+</body>
+
+</html>
